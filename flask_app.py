@@ -17,8 +17,8 @@ def sendemail():
         email = request.form['_replyto']
         message = request.form['message']
 
-        your_name = "Ayush Kalla"
-        your_email = "ayushkalla2050@gmail.com"
+        your_name = "Satyam Kastwal"
+        your_email = "skastwal701@gmail.com"
         your_password = "pASSWORD@25243912524391"
 
         # Logging in to our email account
@@ -29,7 +29,7 @@ def sendemail():
 
         # Sender's and Receiver's email address
         sender_email = "ayushkalla2050@gmail.com"
-        receiver_email = "akalla@stevens.edu"
+        receiver_email = "skastwal701@gmail.com"
 
         msg = EmailMessage()
         msg.set_content("First Name : "+str(name)+"\nEmail : "+str(email)+"\nSubject : "+str(subject)+"\nMessage : "+str(message))
@@ -45,5 +45,5 @@ def sendemail():
     return redirect('/');
 
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 8000))
-    app.run(debug=True, host='0.0.0.0', port=port)
+    
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
