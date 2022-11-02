@@ -31,10 +31,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: push to dockerhub
-      uses: docker/build-push-action/@v3
-      with:
-        username: ${{secrets.USERNAME}}
-        password: ${{secrets.PASSWORD}}
-        repository: ${{secrets.DOCKER_REPO}}
-        tag_with_ref: true
- 
+      env:
+        DOCKER_USERNAME: ${{secrets.USERNAME}}
+        DOCKER_PASSWORD: ${{secrets.PASSWORD}}
+      run: docker login -u $DOCKER_USERNAME -P $DOCKER_PASSWORD
+      
+    - name: push to dockerhub
+      run: docker push sattract/satyamresume
