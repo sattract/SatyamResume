@@ -36,5 +36,8 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.PASSWORD}}
       run: docker login -u $DOCKER_USERNAME -P $DOCKER_PASSWORD
       
+    - name: docker image build
+      run: docker build . --file DOCKERFILE --tag sattract/satyamresume 
+      
     - name: push to dockerhub
       run: docker push sattract/satyamresume
